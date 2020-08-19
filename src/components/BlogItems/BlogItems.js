@@ -3,9 +3,11 @@ import axios from "axios";
 import moment from "moment";
 
 import "./blog-items.scss";
+import EditModal from "../EditModal/EditModal";
 
 function BlogItems() {
   const [blogItems, setBlogItems] = useState([]);
+  const [blogPostToEdit, setBlogPostToEdit] = useState("");
 
   useEffect(() => {
     loadBlogItems();
@@ -49,7 +51,13 @@ function BlogItems() {
                 </p>
               </div>
               <div className="blog-item-btn-wrapper">
-                <button type="button" className="blog-item-btn edit-btn">
+                <button
+                  type="button"
+                  className="blog-item-btn edit-btn"
+                  data-toggle="modal"
+                  data-target="#exampleModal2"
+                  onMouseDown={() => setBlogPostToEdit(item.id)}
+                >
                   Edit
                 </button>
                 <button
@@ -86,6 +94,7 @@ function BlogItems() {
           </div>
         );
       })}
+      <EditModal id={blogPostToEdit} />
     </div>
   );
 }

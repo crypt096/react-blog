@@ -1,22 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import "./add-edit-modal.scss";
+import axios from "axios";
 
-function AddEditModal() {
+import "./edit-modal.scss";
+
+function EditModal({ id }) {
+  const [blogItem, setBlogItem] = useState([]);
+
+  const loadBlogItem = async () => {
+    const res = await axios.get(
+      `https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${id}`
+    );
+    setBlogItem(res.data.resultData);
+  };
+
+  useEffect(() => {
+    loadBlogItem();
+  }, [id]);
+
   return (
     <div>
       <div
         className="modal fade"
-        id="exampleModal"
+        id="exampleModal2"
         tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="exampleModalLabel2"
         aria-hidden="true"
       >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h6 className="modal-title" id="exampleModalLabel">
-                Add/Edit blog post
+              <h6 className="modal-title" id="exampleModalLabel2">
+                Edit blog post
               </h6>
               <button
                 type="button"
@@ -33,7 +48,10 @@ function AddEditModal() {
                 <input
                   className="modal-blog-input-title"
                   type="text"
+                  name="title"
                   placeholder="Title of the post"
+                  defaultValue={blogItem.title}
+                  // onChange={(e) => onInputChange(e)}
                 />
                 <span className="required">*</span>
               </div>
@@ -41,16 +59,22 @@ function AddEditModal() {
                 <span className="modal-blog-text-label">Text</span>
                 <textarea
                   className="modal-blog-textarea-content"
-                  name="modal-blog-text"
+                  name="text"
                   id="modal-blog-text"
                   placeholder="Text of the post"
+                  defaultValue={blogItem.text}
+                  // onChange={(e) => onInputChange(e)}
                 ></textarea>
                 <span className="required">*</span>
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="modal-btn post-btn">
-                Post
+              <button
+                type="button"
+                className="modal-btn post-btn"
+                // onClick={onSubmit}
+              >
+                Update
               </button>
               <button
                 type="button"
@@ -67,4 +91,4 @@ function AddEditModal() {
   );
 }
 
-export default AddEditModal;
+export default EditModal;
