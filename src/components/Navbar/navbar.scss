@@ -1,0 +1,23 @@
+.navbar-wrapper {
+  background-color: black;
+
+  .navbar-title {
+    font-family: cursive;
+    font-size: 14px;
+  }
+
+  .nav-link {
+    font-family: cursive;
+    font-size: 14px;
+    color: white;
+    text-decoration: underline;
+  }
+
+  .navbar-search {
+    font-family: cursive;
+    font-size: 12px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 1px;
+  }
+}
