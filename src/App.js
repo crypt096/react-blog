@@ -7,6 +7,7 @@ import AppMessages from "./components/AppMessages/AppMessages";
 import AddPost from "./components/AddPost/AddPost";
 import BlogCategories from "./components/BlogCategories/BlogCategories";
 import BlogItems from "./components/BlogItems/BlogItems";
+import AddEditModal from "./components/AddEditModal/AddEditModal";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <BlogItems />
           </div>
         </div>
+        <AddEditModal />
       </div>
     </div>
   );
