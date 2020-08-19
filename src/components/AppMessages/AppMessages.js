@@ -1,16 +1,16 @@
 import React from "react";
-import "./appmesages.scss";
+import "./app-messages.scss";
 
 function AppMessages() {
   return (
     <div>
       <div className="row no-gutters">
-        <div className="col-3">TEST</div>
-        <div className="col-9">
+        <div className="col-2 px-2 py-2"></div>
+        <div className="col-10 px-2 py-2">
           <div className="messages-wrapper">
-            <h1>Welcome to my blog</h1>
+            <h3 className="blog-title">Welcome to My Blog</h3>
             <div className="msg-container">
-              <p>Container for showing application messages</p>
+              <p className="msg">Container for showing application messages</p>
               <i className="fas fa-times close-icon"></i>
             </div>
           </div>

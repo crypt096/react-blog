@@ -1,5 +1,9 @@
 .blog-items-wrapper {
+  &:nth-of-type(2n) {
+    background-color: white;
+  }
   background-color: lightgrey;
+
   border: 1px solid black;
   height: 350px;
   padding: 20px;

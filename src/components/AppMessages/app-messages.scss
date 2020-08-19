@@ -1,0 +1,31 @@
+.messages-wrapper {
+  height: 250px;
+  width: 100%;
+
+  .blog-title {
+    font-weight: bold;
+  }
+
+  .msg-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 70px;
+    background-color: lightgrey;
+
+    .msg {
+      align-self: center;
+      margin-bottom: 0;
+      font-family: cursive;
+      font-size: 14px;
+      padding-left: 35px;
+    }
+
+    .close-icon {
+      position: absolute;
+      top: 7px;
+      right: 0;
+      padding-right: 15px;
+    }
+  }
+}
