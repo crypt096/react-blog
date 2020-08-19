@@ -21,6 +21,8 @@ function App() {
           </div>
           <div className="col-10 px-2 py-2">
             <BlogItems />
+            <BlogItems />
+            <BlogItems />
           </div>
         </div>
       </div>
