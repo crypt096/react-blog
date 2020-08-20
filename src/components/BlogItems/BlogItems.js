@@ -5,19 +5,25 @@ import moment from "moment";
 import "./blog-items.scss";
 import EditModal from "../EditModal/EditModal";
 
-function BlogItems() {
-  const [blogItems, setBlogItems] = useState([]);
+function BlogItems({ searchTerm }) {
   const [blogPostToEdit, setBlogPostToEdit] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     loadBlogItems();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   const loadBlogItems = async () => {
     const res = await axios.get(
       "https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts"
     );
-    setBlogItems(res.data.resultData);
+    const results = res.data.resultData.filter(
+      (item) =>
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.text.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
   };
 
   const deletePost = async (id) => {
@@ -29,7 +35,7 @@ function BlogItems() {
 
   return (
     <div>
-      {blogItems.map((item, index) => {
+      {searchResults.map((item, index) => {
         const postedTime = moment(item.updatedAt).format("D.M.YYYY HH:mm");
         const dateOfPost = postedTime.split(" ")[0];
         const timeOfPost = postedTime.split(" ")[1];

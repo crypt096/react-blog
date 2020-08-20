@@ -13,6 +13,7 @@ function EditModal({ id }) {
 
   useEffect(() => {
     loadBlogItem();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const onSubmit = async (e) => {

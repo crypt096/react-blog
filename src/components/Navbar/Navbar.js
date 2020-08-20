@@ -2,7 +2,7 @@ import React from "react";
 
 import "./navbar.scss";
 
-function Navbar() {
+function Navbar({ searchTerm, handleChange }) {
   return (
     <nav className="navbar navbar-expand-md navbar-dark navbar-wrapper">
       <a className="navbar-brand navbar-title" href="/">
@@ -14,11 +14,13 @@ function Navbar() {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          value={searchTerm}
+          onChange={handleChange}
         />
       </form>
       <span className="search-wrapper">
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -26,7 +28,7 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav mr-auto">
