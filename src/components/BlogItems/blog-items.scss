@@ -61,3 +61,44 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .blog-items-wrapper {
+    .blog-item-info-wrapper {
+      .blog-item-title {
+        font-size: 12px;
+      }
+
+      .blog-item-details {
+        font-size: 10px;
+      }
+    }
+
+    .blog-post-content {
+      font-size: 10px;
+    }
+
+    .blog-post-images-wrapper {
+      margin-top: 0;
+    }
+
+    .blog-item-btn-wrapper {
+      position: absolute;
+      top: 20px;
+      right: 15px;
+
+      .blog-item-btn {
+        background-color: black;
+        font-size: 10px;
+        height: 20px;
+        color: white;
+        width: 75px;
+        border-radius: 3px;
+
+        &.delete-btn {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}

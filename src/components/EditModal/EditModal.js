@@ -7,16 +7,29 @@ import "./edit-modal.scss";
 function EditModal({ id }) {
   const [blogItem, setBlogItem] = useState([]);
 
+  const onInputChange = (e) => {
+    setBlogItem({ ...blogItem, [e.target.name]: e.target.value });
+  };
+
+  useEffect(() => {
+    loadBlogItem();
+  }, [id]);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await axios.put(
+      `https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${id}`,
+      blogItem
+    );
+    window.location.href = "/";
+  };
+
   const loadBlogItem = async () => {
     const res = await axios.get(
       `https://frontend-api-test-nultien.azurewebsites.net/api/BlogPosts/${id}`
     );
     setBlogItem(res.data.resultData);
   };
-
-  useEffect(() => {
-    loadBlogItem();
-  }, [id]);
 
   return (
     <div>
@@ -51,7 +64,7 @@ function EditModal({ id }) {
                   name="title"
                   placeholder="Title of the post"
                   defaultValue={blogItem.title}
-                  // onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                 />
                 <span className="required">*</span>
               </div>
@@ -63,7 +76,7 @@ function EditModal({ id }) {
                   id="modal-blog-text"
                   placeholder="Text of the post"
                   defaultValue={blogItem.text}
-                  // onChange={(e) => onInputChange(e)}
+                  onChange={(e) => onInputChange(e)}
                 ></textarea>
                 <span className="required">*</span>
               </div>
@@ -72,7 +85,7 @@ function EditModal({ id }) {
               <button
                 type="button"
                 className="modal-btn post-btn"
-                // onClick={onSubmit}
+                onClick={onSubmit}
               >
                 Update
               </button>

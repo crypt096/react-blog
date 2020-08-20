@@ -5,8 +5,7 @@ function AppMessages() {
   return (
     <div>
       <div className="row no-gutters">
-        <div className="col-2 px-2 py-2"></div>
-        <div className="col-10 px-2 py-2">
+        <div className="col-md-10 col-sm-12 px-2 py-2 ml-auto">
           <div className="messages-wrapper">
             <h3 className="blog-title">Welcome to My Blog</h3>
             <div className="msg-container">

@@ -62,7 +62,7 @@
 
         &-input-title,
         &-textarea-content {
-          width: 450px;
+          max-width: 450px;
           font-size: 12px;
           color: black;
         }
@@ -86,6 +86,21 @@
     .modal-footer {
       justify-content: space-evenly;
       border: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        .modal-blog {
+          &-input-title,
+          &-textarea-content {
+            width: 300px;
+          }
+        }
+      }
     }
   }
 }

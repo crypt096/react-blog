@@ -1,6 +1,10 @@
 .navbar-wrapper {
   background-color: black;
 
+  .links-wrapper {
+    display: inline-block;
+  }
+
   .navbar-title {
     font-family: cursive;
     font-size: 14px;

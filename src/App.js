@@ -17,10 +17,10 @@ function App() {
         <AppMessages />
         <AddPost />
         <div className="row no-gutters">
-          <div className="col-2 px-2 py-2">
+          <div className="col-md-2 col-sm-12 px-2 py-2">
             <BlogCategories />
           </div>
-          <div className="col-10 px-2 py-2">
+          <div className="col-md-10 col-sm-12 px-2 py-2">
             <BlogItems />
           </div>
         </div>

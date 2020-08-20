@@ -89,3 +89,18 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        .modal-blog {
+          &-input-title,
+          &-textarea-content {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+}
